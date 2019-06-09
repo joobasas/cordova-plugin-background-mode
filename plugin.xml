@@ -9,7 +9,7 @@
 
     <description>Prevent apps from going to sleep in background.</description>
 
-    <repo>https://github.com/katzer/cordova-plugin-background-mode.git</repo>
+    <repo>https://github.com/joobasas/cordova-plugin-background-mode.git</repo>
 
     <keywords>appplant, background</keywords>
 
@@ -59,11 +59,9 @@
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="BackgroundMode">
-                <param name="android-package" value="de.appplant.cordova.plugin.background.BackgroundMode"/>
-            </feature>
-            <feature name="BackgroundModeExt">
-                <param name="android-package" value="de.appplant.cordova.plugin.background.BackgroundModeExt"/>
+            <feature name="BackgroundMode" >
+                <param name="android-package"
+                      value="de.appplant.cordova.plugin.background.BackgroundMode"/>
             </feature>
         </config-file>
 
@@ -77,6 +75,7 @@
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.WAKE_LOCK" />
+            <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
         </config-file>
 
         <source-file
@@ -84,7 +83,7 @@
             target-dir="src/de/appplant/cordova/plugin/background" />
 
         <source-file
-            src="src/android/BackgroundModeExt.java"
+            src="src/android/BackgroundExt.java"
             target-dir="src/de/appplant/cordova/plugin/background" />
 
         <source-file
